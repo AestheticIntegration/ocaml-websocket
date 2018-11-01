@@ -34,6 +34,15 @@ module Connected_client : sig
     | Domain_socket of string
     | Vchan of Conduit_lwt_unix.vchan_flow
 
+  val create :
+    ?read_buf:Buffer.t ->
+    ?write_buf:Buffer.t ->
+    Cohttp.Request.t ->
+    Conduit_lwt_unix.flow ->
+    Cohttp_lwt_unix.IO.ic ->
+    Cohttp_lwt_unix.IO.oc ->
+    t
+
   val send : t -> Websocket.Frame.t -> unit Lwt.t
 
   val send_multiple : t -> Websocket.Frame.t list -> unit Lwt.t
