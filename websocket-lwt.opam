@@ -23,4 +23,5 @@ depends: [
   "ipaddr" {>= "2.8.0"}
   "lwt_ssl" {>= "1.1.0"}
   "cohttp-lwt-unix" {>= "1.0.0"}
+  "lwt" {= "3.3.0"}
 ]
