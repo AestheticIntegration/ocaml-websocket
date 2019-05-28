@@ -145,7 +145,8 @@ let with_connection
     client uri =
   let connect () =
     let module C = Cohttp in
-    let nonce = random_string 16 |> B64.encode ~pad:true in
+    let nonce = match random_string 16 |> Base64.encode ~pad:true with
+    | Ok x -> x | Error e -> failwith "Base64 encode error" in
     let headers = C.Header.add_list extra_headers
         ["Upgrade"               , "websocket";
          "Connection"            , "Upgrade";

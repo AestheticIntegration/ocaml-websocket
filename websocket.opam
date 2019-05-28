@@ -18,7 +18,7 @@ tags: [
 build: [ "jbuilder" "build" "-j" jobs "-p" name "@install" ]
 depends: [
   "jbuilder" {build & >= "1.0+beta11"}
-  "base64" {>= "2.2.0"}
+  "base64" {>= "3.1.0"}
   "cohttp" {>= "0.99.0"}
   "ocplib-endian" {>= "1.0"}
   "astring"
